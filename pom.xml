@@ -47,6 +47,10 @@
             <artifactId>hibernate-core</artifactId>
             <version>5.4.17.Final</version>
         </dependency>
-
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.1.4</version>
+        </dependency>
     </dependencies>
 </project>
