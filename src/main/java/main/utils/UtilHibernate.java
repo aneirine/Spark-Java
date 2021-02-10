@@ -1,7 +1,7 @@
 package main.utils;
 
-import org.eclipse.jetty.websocket.common.SessionFactory;
-import org.springframework.context.annotation.Configuration;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
 
 public class UtilHibernate {
     private static final SessionFactory sessionFactory = buildSessionFactory();
@@ -12,6 +12,7 @@ public class UtilHibernate {
         }
         catch (Throwable e) {
             e.printStackTrace();
+            throw new ExceptionInInitializerError(e);
         }
     }
 }
