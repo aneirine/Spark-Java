@@ -10,4 +10,6 @@ public interface Repository<ID, T> {
     List<T> findAll();
 
     T findById(ID id);
+
+
 }

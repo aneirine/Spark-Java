@@ -54,4 +54,6 @@ public class UserRepository implements Repository<Long ,User>{
             return user;
         }
     }
+
+
 }

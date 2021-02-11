@@ -14,10 +14,20 @@ public class UserRoute {
         userService = new UserService();
     }
 
-    public static void configureUserRoutes(Gson gson){
+    public static void configureUserRoutes(Gson gson) {
         path("/api/users", () -> {
-            get("", (request, response) -> userService.findAllUsers(), gson::toJson);
-            post("", (request, response) -> userService.save(request, gson), gson::toJson);
+            get("", (request, response) -> {
+                response.type("application/json");
+                return gson.toJson(userService.findAllUsers());
+            });
+            post("", (request, response) -> {
+                response.type("application/json");
+                return gson.toJson(userService.save(request, gson));
+            });
+            get("/:id",  (request, response) -> {
+                response.type("application/json");
+                return gson.toJson(userService.getUserById(Long.valueOf(request.params("id"))));
+            });
         });
     }
 }
