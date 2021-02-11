@@ -24,6 +24,10 @@ public class UserRoute {
                 response.type("application/json");
                 return gson.toJson(userService.save(request, gson));
             });
+            get("/:id",  (request, response) -> {
+                response.type("application/json");
+                return gson.toJson(userService.getUserById(Long.valueOf(request.params("id"))));
+            });
         });
     }
 }
