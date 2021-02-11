@@ -20,7 +20,9 @@ public class UserService {
     }
 
     public User save(Request request, Gson gson) {
+
         User user = gson.fromJson(request.body(), User.class);
+        System.out.println(user.toString());
         return repository.save(user);
     }
 }
